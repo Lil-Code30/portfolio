@@ -132,6 +132,7 @@ const About = () => {
     'C#',
     'Java',
     'Spring Boot',
+    'Angular',
     'React',
     'Next.js',
     'Node.js',
@@ -139,6 +140,7 @@ const About = () => {
     'PostgreSQL',
     'MongoDB',
     'Docker',
+    'Cloud Computing',
     'Git',
   ];
 
@@ -150,36 +152,35 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Ismael and I enjoy building things that live on the internet. My
-              journey into tech started with a curiosity about how websites work, which led me to
-              pursue a degree in Computer Science at{' '}
+              I’m currently a CS student at{' '}
               <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
                 Université Laval
+              </a>{' '}
+              focusing on Software Engineering and Computer Security. I’m a passionate Full Stack
+              Developer focused on building modern, scalable, and high-performance web applications.
+            </p>
+
+            <p>
+              I enjoy turning ideas into real-world projects through clean UI design, problem solving,
+              and continuous learning. My current journey revolves around the PERN stack, React
+              ecosystem, backend development, APIs, software architecture and cloud computing — while
+              documenting my growth publicly through content creation and live coding on{' '}
+              <a href="https://www.youtube.com/@licode30" target="_blank" rel="noreferrer">
+                YouTube
+              </a>{' '}
+              and{' '}
+              <a href="https://www.twitch.tv/dereal_ismael" target="_blank" rel="noreferrer">
+                Twitch
               </a>
               .
             </p>
 
             <p>
-              Over the past few years, I’ve had the opportunity to work as an IT support agent at{' '}
-              <a href="https://www.videotron.com/" target="_blank" rel="noreferrer">
-                Vidéotron
-              </a>{' '}
-              and the{' '}
-              <a href="https://www.quebec.ca/gouvernement/ministere/cybersecurite-numerique" target="_blank" rel="noreferrer">
-                Ministère de la Cybersécurité et du Numérique
-              </a>
-              , where I developed strong troubleshooting and client-facing skills. As a freelance
-              full stack developer at{' '}
-              <a href="https://github.com/DripCode-Studio" target="_blank" rel="noreferrer">
-                DripCode Studio
-              </a>
-              , I design and build modern web applications from concept to deployment.
-            </p>
-
-            <p>
-              I’m passionate about open source, continuous learning, and creating tools that make a
-              difference. My tech stack spans frontend frameworks like React and Next.js, backend
-              technologies like Java, Spring Boot, Node.js and Express, and databases like PostgreSQL and MongoDB.
+              Beyond coding, I’m passionate about sharing my developer journey, building in public,
+              exploring new technologies, and constantly improving my skills in software engineering,
+              UI/UX, and digital creation. My tech stack spans frontend frameworks like React and
+              Next.js, backend technologies like Java, Spring Boot, Node.js and Express, and
+              databases like PostgreSQL and MongoDB.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

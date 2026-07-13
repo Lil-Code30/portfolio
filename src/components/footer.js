@@ -106,9 +106,9 @@ const Footer = () => {
 
       <StyledCredit tabindex="-1">
         <a href="https://github.com/Lil-Code30/portfolio">
-          <div>Built by Loko Ismael</div>
+          <div>Adapted by Loko Ismael</div>
           <div style={{ marginTop: '5px', color: 'var(--green)' }}>
-            Design by <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">Brittany Chiang</a>
+            Originally designed and built by <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">Brittany Chiang</a>
           </div>
 
           {githubInfo.stars && githubInfo.forks && (

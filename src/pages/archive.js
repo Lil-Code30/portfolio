@@ -73,15 +73,6 @@ const StyledTableContainer = styled.div`
     }
 
     td {
-      &.year {
-        padding-right: 20px;
-
-        @media (max-width: 768px) {
-          padding-right: 10px;
-          font-size: var(--fz-sm);
-        }
-      }
-
       &.title {
         padding-top: 15px;
         padding-right: 20px;
@@ -160,7 +151,6 @@ const ArchivePage = ({ location, data }) => {
           <table>
             <thead>
               <tr>
-                <th>Year</th>
                 <th>Title</th>
                 <th className="hide-on-mobile">Made at</th>
                 <th className="hide-on-mobile">Built with</th>
@@ -171,7 +161,6 @@ const ArchivePage = ({ location, data }) => {
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
                     const {
-                      date,
                       github,
                       external,
                       title,
@@ -180,8 +169,6 @@ const ArchivePage = ({ location, data }) => {
                     } = node.frontmatter;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
-                      <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
-
                       <td className="title">{title}</td>
 
                       <td className="company hide-on-mobile">
@@ -235,12 +222,11 @@ export const pageQuery = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/(projects|featured)/" } }
-      sort: { frontmatter: { date: DESC } }
+      sort: { frontmatter: { title: ASC } }
     ) {
       edges {
         node {
           frontmatter {
-            date
             title
             tech
             github
