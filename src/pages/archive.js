@@ -234,7 +234,7 @@ export default ArchivePage;
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
+      filter: { fileAbsolutePath: { regex: "/content/(projects|featured)/" } }
       sort: { frontmatter: { date: DESC } }
     ) {
       edges {

@@ -1,15 +1,16 @@
 ---
-date: '2024-06-01'
+date: '2023-04-01'
 title: 'VanLife'
 tech:
+  - HTML
+  - CSS
   - React
   - Vite
   - TailwindCSS
-  - React Router
 github: 'https://github.com/Lil-Code30/van-life'
 external: 'https://vanlife-v1.netlify.app/vans'
-company: 'Personal'
+company: 'Full-Stack'
 showInProjects: true
 ---
 
-A van rental platform where users can browse, filter, and reserve vans. Features user authentication, responsive design, and an admin dashboard for managing vans and reservations.
+A website where you can find information about different vans and reserve them for your trip.
