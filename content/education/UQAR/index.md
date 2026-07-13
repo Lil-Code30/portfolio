@@ -1,9 +1,9 @@
 ---
 date: '2025-08-01'
 degree: "B.Sc. in Computer Science"
-school: "Université du Québec à Rimouski — Campus de Lévis"
+school: "UQAR"
 location: "Lévis, QC, Canada"
-range: "2025 - 2026"
+range: "August 2025 - May 2026"
 url: "https://www.uqar.ca/"
 gpa: "3.53 / 4.30"
 ---

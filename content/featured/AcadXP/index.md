@@ -1,7 +1,7 @@
 ---
-date: '1'
+date: '5'
 title: 'AcadXP'
-cover: './acadxp.png'
+cover: '/images/featured/acadxp.png'
 github: 'https://github.com/acadxp/acadxp'
 external: 'https://acadxp.vercel.app/'
 tech:
@@ -14,4 +14,4 @@ tech:
   - Neon
 ---
 
-A gamified academic platform that transforms courses into an XP progression system with levels, achievements, and skill badges. Features a real-time progression dashboard with analytics, AI-generated challenges, custom quiz creation, and a community layer with social features and intelligent notifications.
+Transform your academic journey into an engaging, gamified experience! Track your progress, visualize your skills, and level up through your degree with this comprehensive academic progress tracker featuring real-time analytics and AI-powered challenges.

@@ -1,21 +1,11 @@
-<div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/Lil-Code30/portfolio/main/src/images/logo.png" width="100" />
-</div>
-<h1 align="center">
-  ismaelloko.dev - v4
-</h1>
-<p align="center">
-  The fourth iteration of my personal portfolio built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>.
-  Design by <a href="https://brittanychiang.com" target="_blank">Brittany Chiang</a>.
-</p>
 
-![demo](src/images/demo.png)
+<h1 align="center">
+  Ismael's portfolio - v4
+</h1>
+
+
 
 ## 🚨 Forking this repo (please read!)
-
-I built this portfolio based on Brittany Chiang's v4 design. All design credit goes to her.
-
-### TL;DR
 
 Yes, you can fork this repo. Please give proper credit by linking back to [brittanychiang.com](https://brittanychiang.com). Thanks!
 
