@@ -1,9 +1,9 @@
 ---
-date: '5'
-title: 'AcadXP'
-cover: '/images/featured/acadxp.png'
-github: 'https://github.com/acadxp/acadxp'
-external: 'https://acadxp.vercel.app/'
+date: "1"
+title: "AcadXP"
+cover: "/images/featured/acadxp.png"
+github: "https://github.com/acadxp/acadxp"
+external: "https://acadxp.vercel.app/"
 tech:
   - TypeScript
   - Next.js
