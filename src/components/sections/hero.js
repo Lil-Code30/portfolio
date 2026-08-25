@@ -62,21 +62,16 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="big-heading">Loko Ismael.</h2>;
-  const three = <h3 className="big-heading">Full Stack Developer.</h3>;
+  const three = <h3 className="big-heading">Backend Developer.</h3>;
   const four = (
     <>
       <p>
-        I’m a computer science student at{' '}
+        I'm a Computer Science student at{' '}
         <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
           Université Laval
         </a>{' '}
-        and a full stack developer passionate about building modern, performant web applications.
-        Currently, I’m focused on crafting engaging digital experiences through full-stack projects
-        at{' '}
-        <a href="https://github.com/DripCode-Studio" target="_blank" rel="noreferrer">
-          DripCode Studio
-        </a>
-        .
+        passionate about building reliable software, backend systems, and modern web applications.
+        Currently, I'm focused on Java, Spring Boot, software architecture, and infrastructure.
       </p>
     </>
   );
