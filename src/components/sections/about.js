@@ -19,29 +19,26 @@ const StyledAboutSection = styled.section`
   }
 `;
 const StyledText = styled.div`
-  ul.skills-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    grid-gap: 0 10px;
-    padding: 0;
-    margin: 20px 0 0 0;
-    overflow: hidden;
-    list-style: none;
+  .tech-categories {
+    margin-top: 25px;
 
-    li {
-      position: relative;
-      margin-bottom: 10px;
-      padding-left: 20px;
-      font-family: var(--font-mono);
-      font-size: var(--fz-xs);
+    .tech-category {
+      margin-bottom: 15px;
 
-      &:before {
-        content: '▹';
-        position: absolute;
-        left: 0;
+      h4 {
+        font-family: var(--font-mono);
+        font-size: var(--fz-xs);
         color: var(--green);
-        font-size: var(--fz-sm);
-        line-height: 12px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-family: var(--font-mono);
+        font-size: var(--fz-xs);
+        color: var(--slate-light);
+        line-height: 1.7;
       }
     }
   }
@@ -125,23 +122,19 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'Python',
-    'C#',
-    'Java',
-    'Spring Boot',
-    'Angular',
-    'React',
-    'Next.js',
-    'Node.js',
-    'Express',
-    'PostgreSQL',
-    'MongoDB',
-    'Docker',
-    'Cloud Computing',
-    'Git',
+  const techCategories = [
+    {
+      title: 'Backend',
+      items: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
+    },
+    {
+      title: 'Frontend',
+      items: ['TypeScript', 'React', 'Next.js', 'Angular'],
+    },
+    {
+      title: 'Infrastructure',
+      items: ['Linux', 'Docker', 'Git', 'Networking', 'Cloud'],
+    },
   ];
 
   return (
@@ -152,19 +145,23 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I’m currently a CS student at{' '}
+              I'm a Computer Science student at{' '}
               <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
                 Université Laval
               </a>{' '}
-              focusing on Software Engineering and Computer Security. I’m a passionate Full Stack
-              Developer focused on building modern, scalable, and high-performance web applications.
+              with a growing focus on backend engineering, system architecture, and infrastructure.
             </p>
 
             <p>
-              I enjoy turning ideas into real-world projects through clean UI design, problem solving,
-              and continuous learning. My current journey revolves around the PERN stack, React
-              ecosystem, backend development, APIs, software architecture and cloud computing — while
-              documenting my growth publicly through content creation and live coding on{' '}
+              I enjoy building APIs, working with databases, designing software systems, and
+              understanding what happens behind the applications we use every day. My current
+              journey is centered around Java, Spring Boot, PostgreSQL, Linux, Docker, networking,
+              and cloud technologies.
+            </p>
+
+            <p>
+              I learn by building, experimenting, and sharing what I discover — while documenting
+              my growth publicly through content creation and live coding on{' '}
               <a href="https://www.youtube.com/@licode30" target="_blank" rel="noreferrer">
                 YouTube
               </a>{' '}
@@ -176,19 +173,19 @@ const About = () => {
             </p>
 
             <p>
-              Beyond coding, I’m passionate about sharing my developer journey, building in public,
-              exploring new technologies, and constantly improving my skills in software engineering,
-              UI/UX, and digital creation. My tech stack spans frontend frameworks like React and
-              Next.js, backend technologies like Java, Spring Boot, Node.js and Express, and
-              databases like PostgreSQL and MongoDB.
+              Outside of tech, you'll usually find me playing video games, watching anime, drawing,
+              listening to music, or exploring new ideas.
             </p>
-
-            <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
 
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
+          <div className="tech-categories">
+            {techCategories.map((category, i) => (
+              <div key={i} className="tech-category">
+                <h4>{category.title}</h4>
+                <p>{category.items.join(' · ')}</p>
+              </div>
+            ))}
+          </div>
         </StyledText>
 
         <StyledPic>

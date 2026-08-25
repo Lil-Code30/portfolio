@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Loko Ismael',
     description:
-      'Loko Ismael is a full stack developer and computer science student at Université Laval, passionate about building modern, performant web applications.',
+      'Loko Ismael is a Computer Science student and backend developer passionate about building reliable software, backend systems, and modern web applications.',
     siteUrl: 'https://ismaelloko.vercel.app',
     image: '/og.png',
     twitterUsername: '',
