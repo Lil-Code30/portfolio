@@ -162,6 +162,22 @@ const StyledTabPanel = styled.div`
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }
+
+  h4 {
+    margin: 0 0 5px;
+    font-family: var(--font-mono);
+    font-size: var(--fz-md);
+    font-weight: 500;
+
+    &:not(:first-of-type) {
+      margin-top: 25px;
+    }
+  }
+
+  h4 + p,
+  h4 + p + p {
+    margin-bottom: 5px;
+  }
 `;
 
 const Jobs = () => {
