@@ -143,6 +143,25 @@ const StyledTabPanel = styled.div`
 
   ul {
     ${({ theme }) => theme.mixins.fancyList};
+
+    li {
+      strong {
+        color: var(--lightest-slate);
+        font-weight: 500;
+      }
+
+      ul {
+        margin: 10px 0 20px;
+
+        li {
+          color: var(--light-slate);
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
   }
 
   h3 {
@@ -161,22 +180,6 @@ const StyledTabPanel = styled.div`
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
-  }
-
-  h4 {
-    margin: 0 0 5px;
-    font-family: var(--font-mono);
-    font-size: var(--fz-md);
-    font-weight: 500;
-
-    &:not(:first-of-type) {
-      margin-top: 25px;
-    }
-  }
-
-  h4 + p,
-  h4 + p + p {
-    margin-bottom: 5px;
   }
 `;
 
