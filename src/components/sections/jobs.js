@@ -143,6 +143,25 @@ const StyledTabPanel = styled.div`
 
   ul {
     ${({ theme }) => theme.mixins.fancyList};
+
+    li {
+      strong {
+        color: var(--lightest-slate);
+        font-weight: 500;
+      }
+
+      ul {
+        margin: 10px 0 20px;
+
+        li {
+          color: var(--light-slate);
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
   }
 
   h3 {
