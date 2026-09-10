@@ -149,14 +149,16 @@ const About = () => {
               <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
                 Université Laval
               </a>{' '}
-              with a growing focus on backend engineering, system architecture, and infrastructure.
+              with a growing focus on backend engineering, system architecture, and infrastructure
+              — alongside a deep interest in cybersecurity and building secure systems.
             </p>
 
             <p>
               I enjoy building APIs, working with databases, designing software systems, and
               understanding what happens behind the applications we use every day. My current
               journey is centered around Java, Spring Boot, PostgreSQL, Linux, Docker, networking,
-              and cloud technologies.
+              and cloud technologies — and I'm always exploring ways to make those systems more
+              secure, from threat modeling to hardening infrastructure.
             </p>
 
             <p>

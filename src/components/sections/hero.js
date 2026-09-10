@@ -71,7 +71,7 @@ const Hero = () => {
           Université Laval
         </a>{' '}
         passionate about building reliable software, backend systems, and modern web applications.
-        Currently, I'm focused on backend engineering, software architecture, and infrastructure.
+        Currently, I'm focused on backend engineering, software architecture, and infrastructure — with a growing interest in cybersecurity.
       </p>
     </>
   );
