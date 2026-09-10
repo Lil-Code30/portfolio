@@ -4,7 +4,7 @@ degree: "DEP in IT Support"
 school: "CFP Marie-Rollet"
 location: "Québec, QC, Canada"
 range: "January 2023 - May 2024"
-url: "https://www.csdecision.org/"
+url: "https://cfpmr.com/"
 ---
 
 - Specialized in information technologies: hardware/software troubleshooting, networking, technical assistance
