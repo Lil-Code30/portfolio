@@ -4,7 +4,7 @@ degree: "High School Diploma"
 school: "G.B.H.S. Etoug-Ebe"
 location: "Yaoundé, Cameroon"
 range: "2013 - 2020"
-url: ""
+url: "https://www.facebook.com/LBE.GBHS.Yaounde6/#"
 ---
 
 - Completed a broad-based secondary education with strong foundations in mathematics, sciences, and computer studies
