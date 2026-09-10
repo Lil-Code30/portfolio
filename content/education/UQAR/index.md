@@ -5,7 +5,7 @@ school: "UQAR"
 location: "Lévis, QC, Canada"
 range: "August 2025 - May 2026"
 url: "https://www.uqar.ca/"
-gpa: "3.53 / 4.30"
+gpa: "3.53 / 4.30 · 21 credits"
 ---
 
 - Completed two full-time semesters before transferring to Université Laval
