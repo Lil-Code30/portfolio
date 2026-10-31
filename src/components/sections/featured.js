@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useStaticQuery, graphql } from 'gatsby';
 // import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
@@ -304,10 +305,11 @@ const StyledProject = styled.li`
 `;
 
 const Featured = () => {
+  const { t, language } = useI18next();
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
+        filter: { fileAbsolutePath: { regex: "/content/(fr/)?featured/" } }
         sort: { frontmatter: { date: ASC } }
       ) {
         edges {
@@ -319,6 +321,9 @@ const Featured = () => {
               github
               external
             }
+            fields {
+              language
+            }
             html
           }
         }
@@ -326,7 +331,9 @@ const Featured = () => {
     }
   `);
 
-  const featuredProjects = data.featured.edges.filter(({ node }) => node);
+  const featuredProjects = data.featured.edges.filter(
+    ({ node }) => node.fields?.language === language,
+  );
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -343,7 +350,7 @@ const Featured = () => {
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        {t('featured.heading')}
       </h2>
 
       <StyledProjectsGrid>
@@ -356,7 +363,7 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
+                    <p className="project-overline">{t('featured.overline')}</p>
 
                     <h3 className="project-title">
                       <a href={external}>{title}</a>
@@ -377,12 +384,12 @@ const Featured = () => {
 
                     <div className="project-links">
                       {github && (
-                        <a href={github} aria-label="GitHub Link">
+                        <a href={github} aria-label={t('common.github')}>
                           <Icon name="GitHub" />
                         </a>
                       )}
                       {external && (
-                        <a href={external} aria-label="External Link" className="external">
+                        <a href={external} aria-label={t('common.external')} className="external">
                           <Icon name="External" />
                         </a>
                       )}

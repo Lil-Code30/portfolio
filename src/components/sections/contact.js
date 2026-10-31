@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { srConfig, email } from '@config';
 import sr from '@utils/sr';
@@ -42,6 +43,7 @@ const StyledContactSection = styled.section`
 `;
 
 const Contact = () => {
+  const { t } = useI18next();
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -55,18 +57,14 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">What’s Next?</h2>
+      <h2 className="numbered-heading overline">{t('contact.overline')}</h2>
 
-      <h2 className="title">Get In Touch</h2>
+      <h2 className="title">{t('contact.title')}</h2>
 
-      <p>
-        I'm currently open to new opportunities and always happy to connect! Whether you have a
-        project idea, a question, or just want to say hi, feel free to reach out — I'll do my best
-        to get back to you.
-      </p>
+      <p>{t('contact.description')}</p>
 
       <a className="email-link" href={`mailto:${email}`}>
-        Say Hello
+        {t('contact.cta')}
       </a>
     </StyledContactSection>
   );

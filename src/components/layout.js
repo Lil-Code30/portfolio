@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Analytics } from '@vercel/analytics/react';
@@ -12,7 +13,8 @@ const StyledContent = styled.div`
 `;
 
 const Layout = ({ children, location }) => {
-  const isHome = location.pathname === '/';
+  const { t } = useI18next();
+  const isHome = /^\/(en|fr)?\/?$/.test(location.pathname);
   const [isLoading, setIsLoading] = useState(isHome);
 
   // Sets target="_blank" rel="noopener noreferrer" on external links
@@ -57,7 +59,7 @@ const Layout = ({ children, location }) => {
           <GlobalStyle />
 
           <a className="skip-to-content" href="#content">
-            Skip to Content
+            {t('layout.skip')}
           </a>
 
           {isLoading && isHome ? (

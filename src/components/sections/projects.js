@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -166,11 +167,12 @@ const StyledProject = styled.li`
 `;
 
 const Projects = () => {
+  const { t, language } = useI18next();
   const data = useStaticQuery(graphql`
     query {
       projects: allMarkdownRemark(
         filter: {
-          fileAbsolutePath: { regex: "/content/projects/" }
+          fileAbsolutePath: { regex: "/content/(fr/)?projects/" }
           frontmatter: { showInProjects: { ne: false } }
         }
         sort: { frontmatter: { title: ASC } }
@@ -182,6 +184,9 @@ const Projects = () => {
               tech
               github
               external
+            }
+            fields {
+              language
             }
             html
           }
@@ -207,7 +212,9 @@ const Projects = () => {
   }, []);
 
   const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
+  const projects = data.projects.edges.filter(
+    ({ node }) => node.fields?.language === language,
+  );
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
@@ -224,14 +231,14 @@ const Projects = () => {
             </div>
             <div className="project-links">
               {github && (
-                <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
+                <a href={github} aria-label={t('common.github')} target="_blank" rel="noreferrer">
                   <Icon name="GitHub" />
                 </a>
               )}
               {external && (
                 <a
                   href={external}
-                  aria-label="External Link"
+                  aria-label={t('common.external')}
                   className="external"
                   target="_blank"
                   rel="noreferrer">
@@ -265,10 +272,10 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+      <h2 ref={revealTitle}>{t('projects.heading')}</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
+        {t('projects.archive')}
       </Link>
 
       <ul className="projects-grid">
@@ -303,7 +310,7 @@ const Projects = () => {
       </ul>
 
       <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
+        {showMore ? t('projects.showLess') : t('projects.showMore')}
       </button>
     </StyledProjectsSection>
   );

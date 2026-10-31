@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
@@ -121,6 +122,7 @@ const StyledTableContainer = styled.div`
 `;
 
 const ArchivePage = ({ location, data }) => {
+  const { t } = useI18next();
   const projects = data.allMarkdownRemark.edges;
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
@@ -139,22 +141,22 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
+      <Helmet title={t('archive.title')} />
 
       <main>
         <header ref={revealTitle}>
-          <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <h1 className="big-heading">{t('archive.title')}</h1>
+          <p className="subtitle">{t('archive.subtitle')}</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
           <table>
             <thead>
               <tr>
-                <th>Title</th>
-                <th className="hide-on-mobile">Made at</th>
-                <th className="hide-on-mobile">Built with</th>
-                <th>Link</th>
+                <th>{t('archive.tableTitle')}</th>
+                <th className="hide-on-mobile">{t('archive.madeAt')}</th>
+                <th className="hide-on-mobile">{t('archive.builtWith')}</th>
+                <th>{t('archive.link')}</th>
               </tr>
             </thead>
             <tbody>
@@ -189,12 +191,12 @@ const ArchivePage = ({ location, data }) => {
                       <td className="links">
                         <div>
                           {external && (
-                            <a href={external} aria-label="External Link">
+                            <a href={external} aria-label={t('common.external')}>
                               <Icon name="External" />
                             </a>
                           )}
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a href={github} aria-label={t('common.github')}>
                               <Icon name="GitHub" />
                             </a>
                           )}
@@ -219,9 +221,12 @@ ArchivePage.propTypes = {
 export default ArchivePage;
 
 export const pageQuery = graphql`
-  {
+  query ($language: String!) {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/(projects|featured)/" } }
+      filter: {
+        fields: { language: { eq: $language } }
+        fileAbsolutePath: { regex: "/content/(fr/)?(projects|featured)/" }
+      }
       sort: { frontmatter: { title: ASC } }
     ) {
       edges {
@@ -234,6 +239,15 @@ export const pageQuery = graphql`
             company
           }
           html
+        }
+      }
+    }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

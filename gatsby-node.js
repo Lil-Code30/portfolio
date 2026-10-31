@@ -6,9 +6,7 @@
 
 const path = require('path');
 
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions;
-};
+exports.createPages = async () => {};
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -51,10 +49,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         ? fileNode.relativePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
         : '');
 
+    const absolutePath = (fileNode?.absolutePath || '').split(path.sep).join('/');
+    const language = absolutePath.includes('/content/fr/') ? 'fr' : 'en';
+
     createNodeField({
       node,
       name: 'slug',
       value: slug ? `/${slug.replace(/^\/+/, '')}` : '/',
+    });
+
+    createNodeField({
+      node,
+      name: 'language',
+      value: language,
     });
   }
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
@@ -68,6 +69,7 @@ const StyledCredit = styled.div`
 `;
 
 const Footer = () => {
+  const { t } = useI18next();
   const [githubInfo, setGitHubInfo] = useState({
     stars: null,
     forks: null,
@@ -104,11 +106,16 @@ const Footer = () => {
         </ul>
       </StyledSocialLinks>
 
-      <StyledCredit tabindex="-1">
+      <StyledCredit tabIndex="-1">
         <a href="https://github.com/Lil-Code30/portfolio">
-          <div>Adapted by Loko Ismael</div>
+          <div>{t('footer.credit')}</div>
           <div style={{ marginTop: '5px', color: 'var(--green)' }}>
-            Originally designed and built by <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">Brittany Chiang</a>
+            <Trans i18nKey="footer.original">
+              Originally designed and built by{' '}
+              <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">
+                Brittany Chiang
+              </a>
+            </Trans>
           </div>
 
           {githubInfo.stars && githubInfo.forks && (

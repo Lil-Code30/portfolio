@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "about": "À propos",
+    "education": "Formation",
+    "experience": "Expérience",
+    "work": "Projets",
+    "contact": "Contact",
+    "resume": "CV",
+    "home": "Accueil",
+    "menu": "Menu",
+    "language": "Langue"
+  },
+  "hero": {
+    "greeting": "Bonjour, je m'appelle",
+    "name": "Loko Ismael.",
+    "role": "Développeur backend.",
+    "description": "Je suis étudiant en informatique à <1>l'Université Laval</1>, passionné par la création de logiciels fiables, de systèmes backend et d'applications web modernes. Je me concentre actuellement sur l'ingénierie backend, l'architecture logicielle et l'infrastructure — avec un intérêt croissant pour la cybersécurité.",
+    "cta": "Entrer en contact"
+  },
+  "about": {
+    "heading": "À propos",
+    "p1": "Je suis étudiant en informatique à <1>l'Université Laval</1>, avec un intérêt croissant pour l'ingénierie backend, l'architecture des systèmes et l'infrastructure — ainsi qu'un vif intérêt pour la cybersécurité et la création de systèmes sécurisés.",
+    "p2": "J'aime créer des API, travailler avec des bases de données, concevoir des systèmes logiciels et comprendre ce qui se passe derrière les applications que nous utilisons au quotidien. Mon parcours actuel s'articule autour de Java, Spring Boot, PostgreSQL, Linux, Docker, des réseaux et des technologies infonuagiques — et je cherche constamment à rendre ces systèmes plus sécurisés, de la modélisation des menaces au renforcement de l'infrastructure.",
+    "p3": "J'apprends en construisant, en expérimentant et en partageant mes découvertes — tout en documentant ma progression publiquement par la création de contenu et la programmation en direct sur <1>YouTube</1> et <2>Twitch</2>.",
+    "p4": "En dehors de la technologie, vous me trouverez souvent à jouer à des jeux vidéo, regarder des animés, dessiner, écouter de la musique ou explorer de nouvelles idées.",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "infrastructure": "Infrastructure",
+    "imageAlt": "Photo de profil"
+  },
+  "jobs": {
+    "heading": "Où j'ai travaillé",
+    "tabs": "Onglets des emplois"
+  },
+  "education": {
+    "heading": "Formation",
+    "tabs": "Onglets de formation",
+    "gpa": "Moyenne : {{gpa}}"
+  },
+  "featured": {
+    "heading": "Quelques projets que j'ai réalisés",
+    "overline": "Projet en vedette"
+  },
+  "projects": {
+    "heading": "Autres projets intéressants",
+    "archive": "voir les archives",
+    "showMore": "Afficher plus",
+    "showLess": "Afficher moins"
+  },
+  "contact": {
+    "overline": "Et après ?",
+    "title": "Entrer en contact",
+    "description": "Je suis actuellement ouvert à de nouvelles opportunités et toujours heureux de discuter ! Que vous ayez une idée de projet, une question ou simplement envie de dire bonjour, n'hésitez pas à me contacter — je ferai de mon mieux pour vous répondre.",
+    "cta": "Dites bonjour"
+  },
+  "footer": {
+    "credit": "Adapté par Loko Ismael",
+    "original": "Conçu et développé à l'origine par <1>Brittany Chiang</1>"
+  },
+  "layout": {
+    "skip": "Aller au contenu"
+  },
+  "head": {
+    "description": "Loko Ismael est un étudiant en informatique et développeur backend passionné par la création de logiciels fiables, de systèmes backend et d'applications web modernes."
+  },
+  "archive": {
+    "title": "Archives",
+    "subtitle": "Une grande liste de projets sur lesquels j'ai travaillé",
+    "tableTitle": "Titre",
+    "madeAt": "Réalisé chez",
+    "builtWith": "Technologies",
+    "link": "Lien"
+  },
+  "pensieve": {
+    "title": "Pensine",
+    "subtitle": "une collection de souvenirs",
+    "tagsTitle": "Étiquettes",
+    "allMemories": "Tous les souvenirs"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "heading": "Page introuvable",
+    "cta": "Retour à l'accueil"
+  },
+  "common": {
+    "github": "Lien GitHub",
+    "external": "Lien externe"
+  }
+}

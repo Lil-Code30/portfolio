@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
@@ -48,6 +49,7 @@ const StyledHeroSection = styled.section`
 `;
 
 const Hero = () => {
+  const { t } = useI18next();
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -60,18 +62,21 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Loko Ismael.</h2>;
-  const three = <h3 className="big-heading">Backend Developer.</h3>;
+  const one = <h1>{t('hero.greeting')}</h1>;
+  const two = <h2 className="big-heading">{t('hero.name')}</h2>;
+  const three = <h3 className="big-heading">{t('hero.role')}</h3>;
   const four = (
     <>
       <p>
-        I'm a Computer Science student at{' '}
-        <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
-          Université Laval
-        </a>{' '}
-        passionate about building reliable software, backend systems, and modern web applications.
-        Currently, I'm focused on backend engineering, software architecture, and infrastructure — with a growing interest in cybersecurity.
+        <Trans i18nKey="hero.description">
+          I&apos;m a Computer Science student at{' '}
+          <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
+            Université Laval
+          </a>{' '}
+          passionate about building reliable software, backend systems, and modern web applications.
+          Currently, I&apos;m focused on backend engineering, software architecture, and infrastructure —
+          with a growing interest in cybersecurity.
+        </Trans>
       </p>
     </>
   );
@@ -81,7 +86,7 @@ const Hero = () => {
       href={`mailto:${email}`}
       target="_blank"
       rel="noreferrer">
-      Get In Touch
+      {t('hero.cta')}
     </a>
   );
 
