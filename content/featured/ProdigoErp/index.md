@@ -2,6 +2,8 @@
 date: "5"
 title: "Prodigo ERP"
 cover: "/images/featured/prodigo-erp.png"
+github: "https://github.com/ProdigoHQ"
+external: "https://prodigo-web.vercel.app/"
 tech:
   - Java
   - Spring Boot

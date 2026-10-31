@@ -1,10 +1,10 @@
 ---
-date: '2026-06-01'
-title: 'IT Service Desk Analyst (Student)'
-company: 'Videotron'
-location: 'Québec, QC'
-range: 'June 2026 - Present'
-url: 'https://www.videotron.com/'
+date: "2026-06-01"
+title: "IT Service Desk Analyst"
+company: "Videotron"
+location: "Québec, QC"
+range: "June 2026 - Present"
+url: "https://www.videotron.com/"
 ---
 
 - Provide first-level technical support to users through phone, remote support tools, and ticketing systems
