@@ -20,24 +20,40 @@ module.exports = {
     },
   ],
 
+  resumes: [
+    {
+      label: 'English (EN)',
+      url: '/resume-en.pdf',
+    },
+    {
+      label: 'Français (FR)',
+      url: '/resume-fr.pdf',
+    },
+  ],
+
   navLinks: [
     {
+      key: 'about',
       name: 'About',
       url: '/#about',
     },
     {
+      key: 'education',
       name: 'Education',
       url: '/#education',
     },
     {
+      key: 'experience',
       name: 'Experience',
       url: '/#jobs',
     },
     {
+      key: 'work',
       name: 'Work',
       url: '/#projects',
     },
     {
+      key: 'contact',
       name: 'Contact',
       url: '/#contact',
     },

@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "about": "About",
+    "education": "Education",
+    "experience": "Experience",
+    "work": "Work",
+    "contact": "Contact",
+    "resume": "Resume",
+    "home": "home",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Loko Ismael.",
+    "role": "Backend Developer.",
+    "description": "I'm a Computer Science student at <1>Université Laval</1> passionate about building reliable software, backend systems, and modern web applications. Currently, I'm focused on backend engineering, software architecture, and infrastructure — with a growing interest in cybersecurity.",
+    "cta": "Get In Touch"
+  },
+  "about": {
+    "heading": "About Me",
+    "p1": "I'm a Computer Science student at <1>Université Laval</1> with a growing focus on backend engineering, system architecture, and infrastructure — alongside a deep interest in cybersecurity and building secure systems.",
+    "p2": "I enjoy building APIs, working with databases, designing software systems, and understanding what happens behind the applications we use every day. My current journey is centered around Java, Spring Boot, PostgreSQL, Linux, Docker, networking, and cloud technologies — and I'm always exploring ways to make those systems more secure, from threat modeling to hardening infrastructure.",
+    "p3": "I learn by building, experimenting, and sharing what I discover — while documenting my growth publicly through content creation and live coding on <1>YouTube</1> and <2>Twitch</2>.",
+    "p4": "Outside of tech, you'll usually find me playing video games, watching anime, drawing, listening to music, or exploring new ideas.",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "infrastructure": "Infrastructure",
+    "imageAlt": "Headshot"
+  },
+  "jobs": {
+    "heading": "Where I've Worked",
+    "tabs": "Job tabs"
+  },
+  "education": {
+    "heading": "Education",
+    "tabs": "Education tabs",
+    "gpa": "GPA: {{gpa}}"
+  },
+  "featured": {
+    "heading": "Some Things I've Built",
+    "overline": "Featured Project"
+  },
+  "projects": {
+    "heading": "Other Noteworthy Projects",
+    "archive": "view the archive",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+  "contact": {
+    "overline": "What's Next?",
+    "title": "Get In Touch",
+    "description": "I'm currently open to new opportunities and always happy to connect! Whether you have a project idea, a question, or just want to say hi, feel free to reach out — I'll do my best to get back to you.",
+    "cta": "Say Hello"
+  },
+  "footer": {
+    "credit": "Adapted by Loko Ismael",
+    "original": "Originally designed and built by <1>Brittany Chiang</1>"
+  },
+  "layout": {
+    "skip": "Skip to Content"
+  },
+  "head": {
+    "description": "Loko Ismael is a Computer Science student and backend developer passionate about building reliable software, backend systems, and modern web applications."
+  },
+  "archive": {
+    "title": "Archive",
+    "subtitle": "A big list of things I've worked on",
+    "tableTitle": "Title",
+    "madeAt": "Made at",
+    "builtWith": "Built with",
+    "link": "Link"
+  },
+  "pensieve": {
+    "title": "Pensieve",
+    "subtitle": "a collection of memories",
+    "tagsTitle": "Tags",
+    "allMemories": "All memories"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "heading": "Page Not Found",
+    "cta": "Go Home"
+  },
+  "common": {
+    "github": "GitHub Link",
+    "external": "External Link"
+  }
+}

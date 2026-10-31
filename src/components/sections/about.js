@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -111,6 +112,7 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
+  const { t } = useI18next();
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -124,66 +126,61 @@ const About = () => {
 
   const techCategories = [
     {
-      title: 'Backend',
+      key: 'backend',
       items: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
     },
     {
-      title: 'Frontend',
+      key: 'frontend',
       items: ['TypeScript', 'React', 'Next.js', 'Angular'],
     },
     {
-      title: 'Infrastructure',
+      key: 'infrastructure',
       items: ['Linux', 'Docker', 'Git', 'Networking', 'Cloud'],
     },
   ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
+      <h2 className="numbered-heading">{t('about.heading')}</h2>
 
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              I'm a Computer Science student at{' '}
-              <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
-                Université Laval
-              </a>{' '}
-              with a growing focus on backend engineering, system architecture, and infrastructure
-              — alongside a deep interest in cybersecurity and building secure systems.
+              <Trans i18nKey="about.p1">
+                I&apos;m a Computer Science student at{' '}
+                <a href="https://www.ulaval.ca/" target="_blank" rel="noreferrer">
+                  Université Laval
+                </a>{' '}
+                with a growing focus on backend engineering, system architecture, and infrastructure
+                — alongside a deep interest in cybersecurity and building secure systems.
+              </Trans>
             </p>
 
-            <p>
-              I enjoy building APIs, working with databases, designing software systems, and
-              understanding what happens behind the applications we use every day. My current
-              journey is centered around Java, Spring Boot, PostgreSQL, Linux, Docker, networking,
-              and cloud technologies — and I'm always exploring ways to make those systems more
-              secure, from threat modeling to hardening infrastructure.
-            </p>
+            <p>{t('about.p2')}</p>
 
             <p>
-              I learn by building, experimenting, and sharing what I discover — while documenting
-              my growth publicly through content creation and live coding on{' '}
-              <a href="https://www.youtube.com/@licode30" target="_blank" rel="noreferrer">
-                YouTube
-              </a>{' '}
-              and{' '}
-              <a href="https://www.twitch.tv/dereal_ismael" target="_blank" rel="noreferrer">
-                Twitch
-              </a>
-              .
+              <Trans i18nKey="about.p3">
+                I learn by building, experimenting, and sharing what I discover — while documenting
+                my growth publicly through content creation and live coding on{' '}
+                <a href="https://www.youtube.com/@licode30" target="_blank" rel="noreferrer">
+                  YouTube
+                </a>{' '}
+                and{' '}
+                <a href="https://www.twitch.tv/dereal_ismael" target="_blank" rel="noreferrer">
+                  Twitch
+                </a>
+                .
+              </Trans>
             </p>
 
-            <p>
-              Outside of tech, you'll usually find me playing video games, watching anime, drawing,
-              listening to music, or exploring new ideas.
-            </p>
+            <p>{t('about.p4')}</p>
           </div>
 
           <div className="tech-categories">
             {techCategories.map((category, i) => (
               <div key={i} className="tech-category">
-                <h4>{category.title}</h4>
+                <h4>{t(`about.${category.key}`)}</h4>
                 <p>{category.items.join(' · ')}</p>
               </div>
             ))}
@@ -198,7 +195,7 @@ const About = () => {
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
+              alt={t('about.imageAlt')}
             />
           </div>
         </StyledPic>

@@ -12,6 +12,31 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locale`,
+        path: `${__dirname}/locales`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: ['en', 'fr'],
+        defaultLanguage: 'en',
+        generateDefaultLanguagePage: true,
+        redirect: true,
+        siteUrl: 'https://ismaelloko.vercel.app',
+        trailingSlash: 'always',
+        i18nextOptions: {
+          fallbackLng: 'en',
+          interpolation: {
+            escapeValue: false,
+          },
+        },
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

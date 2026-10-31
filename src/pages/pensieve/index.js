@@ -1,5 +1,6 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -143,18 +144,19 @@ const StyledPost = styled.li`
 `;
 
 const PensievePage = ({ location, data }) => {
+  const { t, language } = useI18next();
   const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout location={location}>
-      <Helmet title="Pensieve" />
+      <Helmet title={t('pensieve.title')} />
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">Pensieve</h1>
+          <h1 className="big-heading">{t('pensieve.title')}</h1>
           <p className="subtitle">
             <a href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve">
-              a collection of memories
+              <Trans i18nKey="pensieve.subtitle">a collection of memories</Trans>
             </a>
           </p>
         </header>
@@ -165,7 +167,7 @@ const PensievePage = ({ location, data }) => {
               const { frontmatter, fields } = node;
               const { title, description, date, tags } = frontmatter;
               const slug = fields?.slug;
-              const formattedDate = new Date(date).toLocaleDateString();
+              const formattedDate = new Date(date).toLocaleDateString(language);
 
               return (
                 <StyledPost key={i}>
@@ -210,9 +212,12 @@ PensievePage.propTypes = {
 export default PensievePage;
 
 export const pageQuery = graphql`
-  {
+  query ($language: String!) {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      filter: {
+        fields: { language: { eq: $language } }
+        fileAbsolutePath: { regex: "/content/(fr/)?posts/" }
+      }
       sort: { frontmatter: { date: DESC } }
     ) {
       edges {
@@ -227,6 +232,15 @@ export const pageQuery = graphql`
             slug
           }
           html
+        }
+      }
+    }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }

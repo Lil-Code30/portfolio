@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -36,29 +37,33 @@ const TagsPage = ({
     allMarkdownRemark: { group },
   },
   location,
-}) => (
-  <Layout location={location}>
-    <Helmet title="Tags" />
+}) => {
+  const { t } = useI18next();
 
-    <StyledTagsContainer>
-      <span className="breadcrumb">
-        <span className="arrow">&larr;</span>
-        <Link to="/pensieve">All memories</Link>
-      </span>
+  return (
+    <Layout location={location}>
+      <Helmet title={t('pensieve.tagsTitle')} />
 
-      <h1>Tags</h1>
-      <ul className="fancy-list">
-        {group.map(tag => (
-          <li key={tag.fieldValue}>
-            <Link to={`/pensieve/tags/${kebabCase(tag.fieldValue)}/`} className="inline-link">
-              {tag.fieldValue} <span className="count">({tag.totalCount})</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </StyledTagsContainer>
-  </Layout>
-);
+      <StyledTagsContainer>
+        <span className="breadcrumb">
+          <span className="arrow">&larr;</span>
+          <Link to="/pensieve">{t('pensieve.allMemories')}</Link>
+        </span>
+
+        <h1>{t('pensieve.tagsTitle')}</h1>
+        <ul className="fancy-list">
+          {group.map(tag => (
+            <li key={tag.fieldValue}>
+              <Link to={`/pensieve/tags/${kebabCase(tag.fieldValue)}/`} className="inline-link">
+                {tag.fieldValue} <span className="count">({tag.totalCount})</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </StyledTagsContainer>
+    </Layout>
+  );
+};
 
 TagsPage.propTypes = {
   data: PropTypes.shape({
@@ -82,11 +87,23 @@ TagsPage.propTypes = {
 export default TagsPage;
 
 export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(limit: 2000) {
+  query ($language: String!) {
+    allMarkdownRemark(
+      limit: 2000
+      filter: { fields: { language: { eq: $language } } }
+    ) {
       group(field: {frontmatter: {tags: SELECT}}) {
         fieldValue
         totalCount
+      }
+    }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

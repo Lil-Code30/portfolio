@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import { navLinks } from '@config';
+import { navLinks, resumes } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
+import LanguageSwitcher from './language-switcher';
 
 const StyledMenu = styled.div`
   display: none;
@@ -147,15 +148,25 @@ const StyledSidebar = styled.aside`
     }
   }
 
+  .resume-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10%;
+  }
+
   .resume-link {
     ${({ theme }) => theme.mixins.bigButton};
     padding: 18px 50px;
-    margin: 10% auto 0;
+    margin: 0;
     width: max-content;
   }
 `;
 
 const Menu = () => {
+  const { t } = useI18next();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -246,7 +257,7 @@ const Menu = () => {
           onClick={toggleMenu}
           menuOpen={menuOpen}
           ref={buttonRef}
-          aria-label="Menu">
+          aria-label={t('nav.menu')}>
           <div className="ham-box">
             <div className="ham-box-inner" />
           </div>
@@ -256,19 +267,31 @@ const Menu = () => {
           <nav ref={navRef}>
             {navLinks && (
               <ol>
-                {navLinks.map(({ url, name }, i) => (
+                {navLinks.map(({ url, key, name }, i) => (
                   <li key={i}>
                     <Link to={url} onClick={() => setMenuOpen(false)}>
-                      {name}
+                      {t(`nav.${key}`, name)}
                     </Link>
                   </li>
                 ))}
               </ol>
             )}
 
-            <a href="/resume.pdf" className="resume-link">
-              Resume
-            </a>
+            <LanguageSwitcher mobile />
+
+            <div className="resume-links">
+              {resumes.map(({ label, url }) => (
+                <a
+                  key={label}
+                  href={url}
+                  className="resume-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}>
+                  {label}
+                </a>
+              ))}
+            </div>
           </nav>
         </StyledSidebar>
       </div>

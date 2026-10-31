@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
@@ -171,10 +172,11 @@ const StyledTabPanel = styled.div`
 `;
 
 const Education = () => {
+  const { t, language } = useI18next();
   const data = useStaticQuery(graphql`
     query {
       education: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/education/" } }
+        filter: { fileAbsolutePath: { regex: "/content/(fr/)?education/" } }
         sort: { frontmatter: { date: DESC } }
       ) {
         edges {
@@ -187,6 +189,9 @@ const Education = () => {
               url
               gpa
             }
+            fields {
+              language
+            }
             html
           }
         }
@@ -194,7 +199,9 @@ const Education = () => {
     }
   `);
 
-  const educationData = data.education.edges;
+  const educationData = data.education.edges.filter(
+    ({ node }) => node.fields?.language === language,
+  );
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -247,10 +254,10 @@ const Education = () => {
 
   return (
     <StyledEducationSection id="education" ref={revealContainer}>
-      <h2 className="numbered-heading">Education</h2>
+      <h2 className="numbered-heading">{t('education.heading')}</h2>
 
       <div className="inner">
-        <StyledTabList role="tablist" aria-label="Education tabs" onKeyDown={e => onKeyDown(e)}>
+        <StyledTabList role="tablist" aria-label={t('education.tabs')} onKeyDown={e => onKeyDown(e)}>
           {educationData &&
             educationData.map(({ node }, i) => {
               const { school } = node.frontmatter;
@@ -298,7 +305,7 @@ const Education = () => {
                     </h3>
 
                     <p className="range">{range}</p>
-                    {gpa && <p className="gpa">GPA: {gpa}</p>}
+                    {gpa && <p className="gpa">{t('education.gpa', { gpa })}</p>}
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                   </StyledTabPanel>
